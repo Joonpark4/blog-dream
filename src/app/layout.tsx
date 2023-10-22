@@ -1,10 +1,11 @@
 import '../styles/globals.css';
 import type { Metadata } from 'next';
 import { Gowun_Batang } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 
-const GownBatang = Gowun_Batang ({
+const GownBatang = Gowun_Batang({
   subsets: ['latin'],
-  weight: '700'
+  weight: '700',
 });
 
 export const metadata: Metadata = {
@@ -19,7 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={GownBatang.className}>{children}</body>
+      <body className={GownBatang.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
