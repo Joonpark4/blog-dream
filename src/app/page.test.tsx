@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import Home from './page';
 
-test('renders 안녕하세요', () => {
+test('checking the text', () => {
   render(<Home />);
-  const textElement = screen.getByText('안녕하세요');
+  const textElement = screen.getByText('아 배고파요');
   expect(textElement).toBeInTheDocument();
 });
