@@ -1,9 +1,11 @@
 import '../styles/globals.css';
 import type { Metadata } from 'next';
-import { Gowun_Batang } from 'next/font/google';
+import { Open_Sans } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 
-const GownBatang = Gowun_Batang({
+const GownBatang = Open_Sans({
   subsets: ['latin'],
   weight: '700',
 });
@@ -20,8 +22,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={GownBatang.className}>
-        {children}
+      <body className={`${GownBatang.className} flex flex-col`}>
+        <Header />
+        <main className="min-h-screen flex flex-col">
+          <div className="grow flex flex-col items-center justify-center">{children}</div>
+          <Footer />
+        </main>
         <Analytics />
       </body>
     </html>
